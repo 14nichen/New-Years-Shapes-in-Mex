@@ -1,11 +1,11 @@
 class Color
 
-	def initialize x,y,size,hue,speed
+	def initialize x,y,size,speed
 		@x=x
 		@y=y
 		@size=size
-		@hue=hue
 		@speed=speed
+		@hue=x
 	end
 
 	def show
@@ -19,16 +19,16 @@ class Color
 end
 
 def setup
-	size 400,160
+	size 400,400
 	color_mode(HSB, 360)
 	@line=[]
-	@numline=1
+	@numline=10
+	@y=0
+	@speed=1
 	@numline.times do
-		@line<<Color.new(0,0,40,0,1)
-		@line<<Color.new(0,40,40,120,2)
-		@line<<Color.new(0,80,40,240,3)
-		@line<<Color.new(0,120,40,360,4)
-		
+		@line<<Color.new(0,@y,40,@speed)
+		@y+=40
+		@speed+=1
 	end
 end
 
